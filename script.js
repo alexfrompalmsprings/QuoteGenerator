@@ -51,14 +51,15 @@ async function getQuote() {
 function tweetQuote() {
   const quote = quoteText.innerText;
   const author = authorText.innerText;
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${quote} - ${author}`;
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quote} - ${author}.`;
 
   //will open a new window for the tweet.
   window.open(twitterUrl, '_blank');
+  console.log('creating a tweet')
 }
 
-
-
+// on click event listeners
+twitterBtn.addEventListener('click', tweetQuote);
 
 
 // On load
