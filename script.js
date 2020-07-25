@@ -45,8 +45,21 @@ async function getQuote() {
     getQuote()
     console.log('Dude you have an error man', err);
   }
-
 }
+
+// Tweet Quote
+function tweetQuote() {
+  const quote = quoteText.innerText;
+  const author = authorText.innerText;
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quote} - ${author}`;
+
+  //will open a new window for the tweet.
+  window.open(twitterUrl, '_blank');
+}
+
+
+
+
 
 // On load
 getQuote()
