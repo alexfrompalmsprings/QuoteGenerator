@@ -21,21 +21,28 @@ async function getQuote() {
 
     const response = await fetch(proxyUrl + apiUrl);
     const data = await response.json();
+    // data & author
     console.log(data);
     console.log(data.quoteAuthor);
-
 
     // logic for an unknown author
     if(data.quoteAuthor === ''){
       authorText = 'Unknown'
     } else{
       authorText.innerText = data.quoteAuthor;
-
     }
+
+    //logic for longer quote
+    if(data.quoteText.length > 80){
+      quoteText.classList.add('long-quote')
+    } else{
+      quoteText.classList.remove('long-quote')
+    }
+
     quoteText.innerText = data.quoteText;
 
   } catch (err) {
-    // getQuote()
+    getQuote()
     console.log('Dude you have an error man', err);
   }
 
